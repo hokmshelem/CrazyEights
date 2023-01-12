@@ -34,7 +34,7 @@ namespace CrazyEights.Controllers
             return CreateApplicationUserDto(user);
         }
 
-        [HttpGet("login")]
+        [HttpPost("login")]
         public async Task<ActionResult<ApplicationUserDto>> Login(LoginDto model)
         {
             var user = await _userManager.FindByNameAsync(model.UserName);

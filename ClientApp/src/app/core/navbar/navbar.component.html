@@ -1,0 +1,40 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="nav-brand" routerLink="/">
+                <img src="./assets/images/site/logo.png" class="me-3" alt="Logi" routerLink="/">
+            </a>
+            <button class="navbar-toggler" type="button" (click)="toggleCollapsed()">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" [ngClass]="{'collapse': collapsed}">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/" routerLinkActive="active"
+                            [routerLinkActiveOptions]="{exact: true}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/play" routerLinkActive="active">Play</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav" *ngIf="(accountService.applicationUser$ | async) === null">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/account/register" routerLinkActive="active">Reister</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/account/login" routerLinkActive="active">Login</a>
+                    </li>
+                </ul>
+
+                <div class="d-felx align-items-center" *ngIf="(accountService.applicationUser$ | async) as user">
+                    <a class="text-white" style="text-decoration: none; cursor: pointer;" routerLink="/profile">
+                        Welcome <span class="welcome">{{user.playerName}}</span>
+                        <img class="profilePic ms-2 me-3" src="./assets/images/site/avatar.png" alt="{{user.playerName}}">
+                    </a>
+                    <a class="btn btn-secondary" (click)="logout()">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
