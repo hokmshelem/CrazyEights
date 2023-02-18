@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
-import { ApplicationUser } from 'src/app/shared/models/applicationUser';
+import { ApplicationUser } from 'src/app/shared/models/account/applicationUser';
 import { AccountService } from '../account.service';
 
 @Component({

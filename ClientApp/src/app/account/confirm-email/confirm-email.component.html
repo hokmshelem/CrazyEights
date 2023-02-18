@@ -1,0 +1,27 @@
+<div class="wrapper" *ngIf="requestCompleted">
+    <ng-container *ngIf="accountActivationSucces === true">
+        <div class="card border-success text-center" style="max-width: 100%;">
+            <div class="card-header bg-success text-white">Account activation success</div>
+            <div class="card-body">
+                <p class="card-text">
+                    {{message}}
+                </p>
+            </div>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="accountActivationSucces === false">
+        <div class="card border-success text-center" style="max-width: 100%;">
+            <div class="card-header bg-danger text-white">Account activation failure</div>
+            <div class="card-body">
+                <p class="card-text">
+                    {{message}}
+                </p>
+                <p *ngIf="message.includes('Invalid token')">
+                    <a class="btn btn-link" (click)="resendEmailConfirmationLink()">
+                        Click here to resend email confirmation link
+                    </a>
+                </p>
+            </div>
+        </div>
+    </ng-container>
+</div>

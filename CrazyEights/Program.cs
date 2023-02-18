@@ -22,6 +22,7 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 });
 builder.Services.AddScoped<InitializeDbService>();
 builder.Services.AddScoped<JWTService>();
+builder.Services.AddScoped<EmailService>();
 
 builder.Services.AddIdentityCore<ApplicationUser>(options =>
 {
@@ -30,6 +31,9 @@ builder.Services.AddIdentityCore<ApplicationUser>(options =>
     options.Password.RequireLowercase = false;
     options.Password.RequireUppercase = false;
     options.Password.RequireNonAlphanumeric = false;
+
+    // to force confirm email
+    options.SignIn.RequireConfirmedEmail = true;
 })
     .AddRoles<IdentityRole>()
     .AddRoleManager<RoleManager<IdentityRole>>()

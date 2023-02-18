@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ErrorsComponent } from './errors/errors.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { SharedModule } from '../shared/shared.module';
+import { ErrorMessagesComponent } from './errors/error-messages/error-messages.component';
 
 
 
 @NgModule({
   declarations: [
-    ErrorsComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    ErrorMessagesComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +19,8 @@ import { SharedModule } from '../shared/shared.module';
   ],
   exports: [
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    ErrorMessagesComponent
   ]
 })
 export class CoreModule { }
